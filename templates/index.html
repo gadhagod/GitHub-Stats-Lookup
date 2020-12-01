@@ -1,0 +1,18 @@
+<head>
+    <title>GitHub Profile Lookup</title>
+    <link rel= "stylesheet" type= "text/css" href="{{ url_for('static',filename='style.css') }}">
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+</head>
+<body>
+    <a href="http://github.com/gadhagod/GitHub-Stats-Lookup">
+        <h1>GitHub Stats Lookup</h1>
+    </a>
+    <br>
+    <br>
+    <center>
+        <form>
+            <input type="text" id="user" placeholder="GitHub Username">
+            <button onclick="search()">Search</button>
+        </form>
+    </center>
+</body>

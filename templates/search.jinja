@@ -1,0 +1,62 @@
+<head>
+    <title>GitHub Profile Lookup</title>
+    <link rel= "stylesheet" type= "text/css" href="{{ url_for('static',filename='style.css') }}">
+</head>
+<body>
+    <center>
+        <a href="{{data['html_url']}}">
+            <h1>{{data['name']}}</h1>
+        </a>
+        {% if data['followers'] != 0 -%}
+            <p>Followers: 
+                <a href="https://github.com/{{data['login']}}?tab=followers">
+                    {{data['followers']}}
+                </a>
+            </p>
+        {% endif %}
+        {% if data['following'] != 0 -%}
+            <p>Following: 
+                <a href="https://github.com/{{data['login']}}?tab=following">
+                    {{data['following']}}
+                </a>
+            </p>
+        {% endif %}
+        {% if data['public_repos'] != 0 -%}
+            <p>Repositories: 
+                <a href="https://github.com/{{data['login']}}?tab=repositories">
+                    {{data['public_repos']}}
+                </a>
+            </p>
+        {% endif %}
+        {% if data['public_gists'] != 0 -%}
+            <p>Gists: 
+                <a href="https://gist.github.com/{{data['login']}}">
+                    {{data['public_gists']}}
+                </a>
+            </p>
+        {% endif %}
+        {% if data['company'] is not none %}
+            <p>Company: {{data['company']}}</p>
+        {% endif %}
+        {% if data['blog'] != '' -%}
+        <p>Site: {{data['blog'].replace('https://', '')}}</p>
+        {% endif %}
+        {% if data['location'] != none -%}
+            <p>Location: {{data['location']}}</p>
+        {% endif %}
+        {% if data['email'] != none -%}
+            <p>Email: {{data['email']}}</p>
+        {% endif %}
+        {% if data['twitter_username'] != none -%}
+        <p>Twitter: 
+            <a href="https://twitter.com/{{data['twitter_username']}}">
+                {{data['twitter_username']}}
+            </a>
+        </p>
+        {% endif %}
+        
+        <a href="http://github.com/{{data['login']}}">
+            <img src="{{data['avatar_url']}}">
+        </a>
+    </center>
+</body>
